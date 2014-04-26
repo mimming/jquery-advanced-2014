@@ -104,3 +104,18 @@ form label {
 .narrow {
   width: 100px;
 }
+
+.gallery ul {
+  list-style: none;
+}
+
+.gallery li {
+  float: left;
+  height: 160px; 
+  width: 160px;
+}
+
+.gallery img { 
+  height: 150px;
+  width: 150px;
+}
