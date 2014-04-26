@@ -1,12 +1,10 @@
 What is this?
 =======================
-All of the source code for my Advanced jQuery class
-
-Class: http://www.cel.sfsu.edu/multimedia/classes.cfm?selection=classes&ID=21048&Period=20122
+All of the source code for my Advanced jQuery class' 2014 session
 
 License
 =======
-Copyright 2012 Jennifer Mimming Murphy
+Copyright 2014 Jennifer Mimming Murphy
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

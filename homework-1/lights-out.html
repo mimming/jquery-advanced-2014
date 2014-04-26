@@ -2,37 +2,14 @@
 <html>
 <head>
   <style>
-    .on {
-      background-color: yellow;
-    }
-
-    .off {
-      background-color: green;
-    }
-
-    #game td {
-      height: 100px;
-      width: 100px;
-    }
+    .on { background-color: yellow; }
+    .off { background-color: green; }
+    #game td { height: 100px; width: 100px; }
   </style>
-  <script src="./jquery.min.js"></script>
+  <script src="./jquery-1.11.0.js"></script>
   <script>
-    $(document).ready(function () {  //jen@mimming.com
+    $(document).ready(function () { 
       $("#game td").click(function () {
-        // Toggle this element
-        $(this).toggleClass("on off");
-
-        // find siblings and toggle them
-        // to the left
-        $(this).prev().toggleClass("on off");
-        // to the right
-        $(this).next().toggleClass("on off");
-        var col = $(this).index();
-        // above
-        $(this).parent().prev().children().eq(col).toggleClass("on off");
-        // below
-        $(this).parent().next().children().eq(col).toggleClass("on off");
-
         // determine if the game is over
         var on = $("#game td").hasClass("on");
         var off = $("#game td").hasClass("off");
