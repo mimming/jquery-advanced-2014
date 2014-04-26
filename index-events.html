@@ -14,25 +14,33 @@
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script>
     $(document).ready(function () {
-
-      // Manipulation
-      //Add a paragraph after each image on click
-
-//      $("img").click(function (event) {
-//        $(this).after("<p><b style='color: red'>You</b> clicked this</p>");
+      // Events
+//      $("li").click(function () {
+//        console.log("hello world. It's Saturday! Whee!");
+////      alert("Coffee is awesome. So is beer.");
 //      });
 
-      // Add a border around each image (at render time) without a border style
-//      $("img").wrap("<div style='background-color: aqua; height: 100px; width: 100px;'></div>");
+//      $("*").contextmenu(function (event) {
+//        event.stopPropagation();
+//        event.preventDefault();
+//        alert("no right clicking here!");
+//      });
 
-      // Add a X to delete icon to each image
-      $(".gallery img").before("<button class='photo-nuker'>X</button>");
+//      $("*").hover(function (eventIn) {
+//        $(this).addClass("highlight");
+//      },
+//      function(eventOut){
+//        $(this).removeClass("highlight");
+//      });
 
-      $(".photo-nuker").click(function() {
-        $(this).parent().detach();
+      $("li").on("click.everyTime", function(event) {
+        console.log("this keeps happening");
       });
 
-
+      $("li").on("click.onlyOnce", function(event) {
+        console.log("this only happens once!");
+        $(this).off("click.onlyOnce");
+      });
     });
   </script>
 </head>
