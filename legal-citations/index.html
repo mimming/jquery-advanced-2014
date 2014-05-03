@@ -3,18 +3,28 @@
 <head>
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script>
+
+    //TODO: Revisit in future class (like maybe next weeek yay);
+
     var references = {
-      "Griswold v. Connecticut, 381 U.S. 479, 480 (1965)":"http://example.com/Griswold",
-      "Marbury v. Madison (1803)":"http://example.com/Marbury",
-      "McCulloch v. Maryland (1819)":"http://example.com/McCulloch"
+      "Griswold v. Connecticut, 381 U.S. 479, 480 (1965)": "http://example.com/Griswold",
+      "Marbury v. Madison (1803)": "http://example.com/Marbury",
+      "McCulloch v. Maryland (1819)": "http://example.com/McCulloch"
     };
     $(document).ready(function () {
-
+      $("p").each(function () {
+        var textBlob = $(this).text();
+        $.each(references, function (key, value) {
+          textBlob = textBlob.replace(key, "<a href='" + value +"'>" + key + "</a>", "g");
+        });
+        $(this).html(textBlob);
+      });
     });
   </script>
 </head>
 <body>
 <h1>Legal Brief Ipsum</h1>
+
 <p>Vice quis labore, stumptown sint vero est wolf accusamus beard Wes Anderson in id adipisicing pour-over. Ullamco
   beard Portland, Tumblr selvage Carles typewriter elit kogi master cleanse squid. Viral photo booth kitsch, McSweeney's
   eu placeat nihil. Mumblecore keffiyeh pickled Tonx, PBR Vice McCulloch v. Maryland (1819) sapiente Marfa photo booth
@@ -56,7 +66,8 @@
   Anderson id church-key distillery, cupidatat deserunt hoodie magna irure Portland asymmetrical fixie.</p>
 
 <p>Eiusmod tempor semiotics meggings aesthetic ugh. Paleo nostrud plaid lomo DIY four loko. Laboris fingerstache
-  Marbury v. Madison (1803). Griswold v. Connecticut, 381 U.S. 479, 480 (1965) qui PBR exercitation mustache beard kitsch
+  Marbury v. Madison (1803). Griswold v. Connecticut, 381 U.S. 479, 480 (1965) qui PBR exercitation mustache beard
+  kitsch
   minim slow-carb. PBR raw denim sint odio assumenda. Sustainable synth cupidatat, scenester sint Marfa in Thundercats
   consectetur you probably haven't heard of them readymade. Quis tofu slow-carb, in quinoa tattooed Intelligentsia
   incididunt four loko retro twee bespoke eu PBR&B.</p>
