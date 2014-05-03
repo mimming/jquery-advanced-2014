@@ -17,16 +17,21 @@
   </style>
   <script src="./jquery-1.11.0.js"></script>
   <script>
-    $(document).ready(function () {  //jen@mimming.com
+    $(document).ready(function () {
       $("#game td").click(function () {
         // Toggle this element
-        $(this).toggleClass("on off");
+        $(this).toggleClass("on").toggleClass("off");
 
         // find siblings and toggle them
+
+        // first, get the other ones in this row
         // to the left
         $(this).prev().toggleClass("on off");
         // to the right
         $(this).next().toggleClass("on off");
+
+
+        // next, figure out our column, and change those cells
         var col = $(this).index();
         // above
         $(this).parent().prev().children().eq(col).toggleClass("on off");

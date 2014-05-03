@@ -14,25 +14,13 @@
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script>
     $(document).ready(function () {
-
-      // Manipulation
-      //Add a paragraph after each image on click
-
-//      $("img").click(function (event) {
-//        $(this).after("<p><b style='color: red'>You</b> clicked this</p>");
-//      });
-
-      // Add a border around each image (at render time) without a border style
-//      $("img").wrap("<div style='background-color: aqua; height: 100px; width: 100px;'></div>");
-
-      // Add a X to delete icon to each image
-      $(".gallery img").before("<button class='photo-nuker'>X</button>");
-
-      $(".photo-nuker").click(function() {
-        $(this).parent().detach();
+      $(".gallery img").click(function(){
+        $(this).fadeOut();
       });
 
-
+//      $(".gallery header").mouseover(function() {
+//        $(".gallery img").fadeIn();
+//      });
     });
   </script>
 </head>

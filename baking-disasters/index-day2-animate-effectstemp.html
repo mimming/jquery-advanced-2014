@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Baking Disasters</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="shortcut icon" href="images/logo_favicon.png"/>
+  <!-- OpenGraph meta elements to define the +Snippet -->
+  <meta property="og:title" content="Baking Disasters"/>
+  <meta property="og:image"
+        content="http://bakingdisasters.com/social-blog/final/images/logo.png"/>
+  <meta property="og:description" content="Cooking is an art and baking is a
+    science. Art gone wrong makes a mess, but science gone wrong may cause a
+    disaster."/>
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+
+      $(".gallery img").hover(
+          function () {
+            $(this).animate({
+              height: "300px"
+            });
+          },
+
+          function () {
+            $(this).animate({
+              height: "150px"
+            });
+          });
+
+    });
+  </script>
+</head>
+<body>
+<header class="blog-header">
+  <div class="header-badge"></div>
+  <a href="index.html"><img id="blog-logo" src="images/logo.png"/></a>
+
+  <h1>Baking Disasters</h1>
+
+  <p>Because sometimes molecular gastronomy explodes.</p>
+</header>
+<section class="content">
+  <section class="post-summary recipe" id="macaron">
+    <header><h2>Macaron</h2></header>
+    <img src="images/macaron.png" alt="full of sugar and egg">
+
+    <p>Few baked goods are as prone to explosions as the delicious and delicate
+      French macaron. There's something about a hard outer shell attempting to hold
+      back the pressure of expanding almond-flour-goo that's reminiscent of a
+      poorly designed steam locomotive... <a href="macaron.html">read more</a></p>
+  </section>
+  <section class="post-summary recipe new-recipe" id="doom-bread">
+    <header><h2>Doom Bread</h2></header>
+    <img src="images/doom-bread.png" alt="awesomely bad for you bread">
+
+    <p>Is it a bread or is it a roll? Within this layery monstrosity is the
+      essence of fatty deliciousness. Doom Bread combines bacon, cheese and vast
+      quantities of butter into a single object, which amazingly fits in the
+      palm of your hand... <a href="doom-bread.html">read more</a></p>
+  </section>
+</section>
+<section id="useless-table" class="content">
+  <header><h2>A Useless Table</h2></header>
+  <table>
+    <thead>
+    <tr>
+      <td>Column 1</td>
+      <td>Column 2</td>
+      <td>Column 3</td>
+      <td>Column 4</td>
+      <td>Column 5</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Cell 6</td>
+      <td>Cell 7</td>
+      <td>Cell 8</td>
+      <td>Cell 9</td>
+      <td>Cell 10</td>
+    </tr>
+    <tr>
+      <td colspan="5">Row 3</td>
+    </tr>
+    <tr>
+      <td>Cell 12</td>
+      <td>Cell 13</td>
+      <td>Cell 14</td>
+      <td>Cell 15</td>
+    </tr>
+  </table>
+</section>
+<section class="content lists">
+  <header><h3>Lists</h3></header>
+  <div style="width: 400px; float: left;">
+    <ul>
+      <li>A one element list's only element</li>
+    </ul>
+    <ul>
+      <li>unordered 1</li>
+      <li>unordered 2</li>
+      <li>unordered 3</li>
+      <li>unordered 4</li>
+    </ul>
+  </div>
+  <span style="clear: both;">
+    <ol>
+      <li>Right list item 1</li>
+      <li>Right list item 2</li>
+      <li>Right list item 3</li>
+      <li>Right list item 4</li>
+      <li>Right list item 5</li>
+    </ol>
+  </span>
+</section>
+<section class="content">
+  <h2>Form</h2>
+
+  <form method="get">
+    <label>Text Field <input type="text" name="text-field"/></label>
+    <label>Text Area <textarea name="textarea"></textarea></label>
+    <label>Submit <input type="submit"/></label>
+  </form>
+  <h3>Not in the form</h3>
+  <label>A button that does nothing
+    <button>Press me!</button>
+  </label><br/>
+  <label>Lonely text field <input type="text" name="lonely-text-field" value="rawr"/></label>
+</section>
+<section class="content gallery">
+  <header><h3>Gallery</h3></header>
+  <ul>
+    <li><img src="./images/doom-bread.png"></li>
+    <li><img src="./images/macaron.png"></li>
+    <li><img src="./images/doom-bread.png"></li>
+    <li><img src="./images/macaron.png"></li>
+    <li><img src="./images/doom-bread.png"></li>
+    <li><img src="./images/macaron.png"></li>
+    <li><img src="./images/doom-bread.png"></li>
+    <li><img src="./images/macaron.png"></li>
+    <li><img src="./images/doom-bread.png"></li>
+  </ul>
+  <div style="clear:both;"></div>
+</section>
+
+<footer>
+  By <a href="http://bakingdisasters.com">Baking Disasters</a>
+
+  <div style="clear:both;"></div>
+</footer>
+
+</body>
+</html>
