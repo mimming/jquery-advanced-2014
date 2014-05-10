@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .on {
+      background-color: yellow;
+    }
+
+    .off {
+      background-color: green;
+    }
+
+    #game td {
+      height: 100px;
+      width: 100px;
+    }
+  </style>
+  <script src="./jquery-1.11.0.js"></script>
+  <!-- JQuery UI -->
+  <script src="./jquery-ui-1.10.4/js/jquery-ui-1.10.4.js"></script>
+  <link rel="stylesheet" href="./jquery-ui-1.10.4/css/ui-lightness/jquery-ui-1.10.4.min.css">
+
+  <script>
+    $(document).ready(function () {
+      $("#game td").click(function () {
+        var col = $(this).index();
+        // Toggle this element
+        $.when(
+            $(this) // the one I clicked on
+                .add($(this).next()) //right
+                .add($(this).prev()) //left
+                .add($(this).parent().prev().children().eq(col)) //up
+                .add($(this).parent().next().children().eq(col)) //down
+                .stop( true, true )
+                .toggleClass("on off", 1000)
+        ).then(function () {
+              // determine if the game is over
+              var on = $("#game td").hasClass("on");
+              var off = $("#game td").hasClass("off");
+              if (!(on && off)) {
+                alert("You win!");
+              }
+            });
+      });
+    });
+  </script>
+</head>
+<body>
+<table id="game">
+  <tr>
+    <td class="on"></td>
+    <td class="off"></td>
+    <td class="on"></td>
+  </tr>
+  <tr>
+    <td class="off"></td>
+    <td class="off"></td>
+    <td class="off"></td>
+  </tr>
+  <tr>
+    <td class="on"></td>
+    <td class="off"></td>
+    <td class="on"></td>
+  </tr>
+</table>
+</body>
+</html>

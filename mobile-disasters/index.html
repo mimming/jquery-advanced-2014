@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css"/>
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+  <script>
+    $(document).ready(function () {
+//      $(".ui-btn").click(function(){
+//        alert("you clicked a button");
+//      });
+      $("#select-custom-7").bind("change", function() {
+        alert("selected something");
+      });
+    });
+  </script>
+</head>
+
+<body>
+
+<div data-role="page">
+
+  <div data-role="header">
+    <h1>Page Title</h1>
+  </div><!-- /header -->
+
+  <div role="main" class="ui-content">
+    <p>Page content goes here.</p>
+
+    <a href="#" class="ui-btn">Anchor</a>
+    <button class="ui-btn">Button</button>
+
+    <fieldset data-role="controlgroup">
+      <legend>Vertical controlgroup:</legend>
+      <label for="select-custom-5">Select A</label>
+      <select name="select-custom-5" id="select-custom-5" data-native-menu="false">
+        <option value="#">One</option>
+        <option value="#">Two</option>
+        <option value="#">Three</option>
+      </select>
+      <label for="select-custom-6">Select B</label>
+      <select name="select-custom-6" id="select-custom-6" data-native-menu="false">
+        <option value="#">One</option>
+        <option value="#">Two</option>
+        <option value="#">Three</option>
+      </select>
+      <label for="select-custom-7">Select C</label>
+      <select name="select-custom-7" id="select-custom-7">
+        <option value="#">One</option>
+        <option value="#">Two</option>
+        <option value="#">Three</option>
+      </select>
+    </fieldset>
+
+  </div><!-- /content -->
+
+  <div data-role="footer">
+    <h4>Page Footer</h4>
+  </div><!-- /footer -->
+</div><!-- /page -->
+
+
+</body>
+</html>
