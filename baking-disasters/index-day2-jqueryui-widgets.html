@@ -19,6 +19,51 @@
 
   <script>
     $(document).ready(function () {
+      mydatabase = null;
+
+      opendatabase = function() {
+        var dbSize = 5 * 1024 * 1024; // 5MB
+        mydatabase = openDatabase("Todo", "1", "progress", dbSize);
+      }
+
+      createTables = function() {
+        mydatabase.transaction(function(tx) {
+          tx.executeSql("CREATE TABLE IF NOT EXISTS progressvalues(ID INTEGER PRIMARY KEY ASC, progress INTEGER)", []);
+        });
+      }
+
+      addProgressValue = function(value) {
+        var db = mydatabase;
+        db.transaction(function(tx){
+          var addedOn = new Date();
+          tx.executeSql("INSERT INTO progressvalues(value) VALUES (?)",
+              [value],
+              html5rocks.webdb.onSuccess,
+              html5rocks.webdb.onError);
+        });
+      }
+
+      getAllValues = function(renderFunc) {
+        var db = mydatabase;
+        db.transaction(function(tx) {
+          tx.executeSql("SELECT * FROM todo", [], renderFunc,
+              alert("ERROR!"));
+        });
+      }
+
+      opendatabase();
+      createTables();
+
+      getAllValues(function(tx, rs){
+        var rowOutput = "";
+        for (var i=0; i < rs.rows.length; i++) {
+          alert(rs.rows.item(i));
+        }
+
+      });
+
+
+
       $(".date-field").datepicker();
 
       $( "#tabs" ).tabs();
@@ -31,6 +76,10 @@
             stop: function( event, ui ) {
               //Set the progress bar value
               $( "#progressbar" ).progressbar("value", ui.value );
+              addProgressValue(ui.value);
+
+
+
             }
           }
       );
