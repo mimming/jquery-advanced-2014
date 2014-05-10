@@ -8,58 +8,72 @@
   <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
   <script>
     $(document).ready(function () {
-//      $(".ui-btn").click(function(){
-//        alert("you clicked a button");
-//      });
-      $("#select-custom-7").bind("change", function() {
-        alert("selected something");
+      $.getJSON("http://bakingdisasters.com/potluck-party-planner/final/api.php?ingredients=true&id=2",
+          function (json) {
+            // change the header text
+            $("#ingredients-header").html(json.name);
+
+            $.each(json.ingredients, function (index, value) {
+              $("#ingredients-list").append("<li>" + value + "</li>").trigger("refresh");
+            });
+
+          });
+      $("#update-map-button").click(function () {
+//        alert($("#map-location-text").val());
+        var mapLink =
+            "http://maps.googleapis.com/maps/api/staticmap?zoom=14" +
+            "&size=400x400&sensor=false&center=" + $("#map-location-text").val();
+
+        $("#map").attr("src", mapLink);
+
       });
+      $("#map-location-text").keypress(function(event) {
+        if(event.keyCode == 13) {
+          var mapLink =
+              "http://maps.googleapis.com/maps/api/staticmap?zoom=14" +
+              "&size=400x400&sensor=false&center=" + $("#map-location-text").val();
+
+          $("#map").attr("src", mapLink);
+
+        }
+      })
+
     });
   </script>
 </head>
 
 <body>
 
+<div id="foobar">
+
+</div>
 <div data-role="page">
 
+  <div>
+    <img id="map"
+         src="http://maps.googleapis.com/maps/api/staticmap?zoom=14&size=400x400&sensor=false&center=New%20York,%20NY">
+    <input id="map-location-text" type="text">
+    <button id="update-map-button">Update the map!</button>
+  </div>
   <div data-role="header">
     <h1>Page Title</h1>
-  </div><!-- /header -->
+  </div>
+  <!-- /header -->
 
   <div role="main" class="ui-content">
-    <p>Page content goes here.</p>
+    <h2 id="ingredients-header"></h2>
+    <ul data-role="listview" id="ingredients-list">
+    </ul>
 
-    <a href="#" class="ui-btn">Anchor</a>
-    <button class="ui-btn">Button</button>
-
-    <fieldset data-role="controlgroup">
-      <legend>Vertical controlgroup:</legend>
-      <label for="select-custom-5">Select A</label>
-      <select name="select-custom-5" id="select-custom-5" data-native-menu="false">
-        <option value="#">One</option>
-        <option value="#">Two</option>
-        <option value="#">Three</option>
-      </select>
-      <label for="select-custom-6">Select B</label>
-      <select name="select-custom-6" id="select-custom-6" data-native-menu="false">
-        <option value="#">One</option>
-        <option value="#">Two</option>
-        <option value="#">Three</option>
-      </select>
-      <label for="select-custom-7">Select C</label>
-      <select name="select-custom-7" id="select-custom-7">
-        <option value="#">One</option>
-        <option value="#">Two</option>
-        <option value="#">Three</option>
-      </select>
-    </fieldset>
-
-  </div><!-- /content -->
+  </div>
+  <!-- /content -->
 
   <div data-role="footer">
     <h4>Page Footer</h4>
-  </div><!-- /footer -->
-</div><!-- /page -->
+  </div>
+  <!-- /footer -->
+</div>
+<!-- /page -->
 
 
 </body>
